@@ -8,7 +8,7 @@ app = Flask(__name__)
 # flask에서는 decorator가 URL 연결에 사용된다. 다음 행의 함수부터 decorator가 적용된다.
 @app.route('/')
 def hello_world():
-    return redirect(url_for('input'))
+    return redirect(url_for('home'))
 
 @app.route('/home')
 def home():
