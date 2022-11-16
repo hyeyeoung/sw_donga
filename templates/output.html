@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Output</title>
 </head>
+
 <body>
-    {{value}}를 전달받았습니다.
+    {% for k,v in value.items() %}
+        <p>
+            {{k}}: {{v}}
+        </p>
+    {% endfor %}
 </body>
 </html>

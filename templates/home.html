@@ -10,9 +10,14 @@
     <p>
         Dong-A 설계 코드를 입력하세요.
     </p>
-    <form method='post' action='/output'>
-        <textarea name='code' rows='10' cols='50'></textarea><br/>
-        <input type='submit' value='완료' class='submit_btn'>
+    <form method="post" action="/output">
+        <p>
+            <input type="text" name="relation" placeholder="관계를 정의하세요"/>
+        </p>
+        <p>
+            <textarea name="code" rows="10" cols="50" placeholder="동아 설계 코드를 입력하세요"></textarea>
+        </p>
+        <input type="submit" value="완료" class="submit_btn">
     </form>
 </body>
 </html>
