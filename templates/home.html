@@ -10,7 +10,8 @@
     <p>
         Dong-A 설계 코드를 입력하세요.
     </p>
-    <form method='post' action='/output'>
+    <form method='post' action="{{url_for('output')}}">
+        <input type = "text" name ="object" id = "object"> <br>
         <textarea name='code' rows='10' cols='50'></textarea><br/>
         <input type='submit' value='완료' class='submit_btn'>
     </form>

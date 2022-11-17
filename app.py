@@ -1,9 +1,8 @@
+from fun import *
 from flask import Flask
 from flask import Flask, render_template, request, session, redirect, url_for
 # render_template 함수는 flask에서 제공하는 함수로 templates에 저장된 html을 불러올 때 사용하는 함수이다.
-
 app = Flask(__name__)
-
 
 # flask에서는 decorator가 URL 연결에 사용된다. 다음 행의 함수부터 decorator가 적용된다.
 @app.route('/')
@@ -15,12 +14,15 @@ def hello_world():
 def home():
     return render_template('home.html')
 
+
+# object_input 예시? 바리스타 <-> 캐셔, 캐셔<-> (손님)
 @app.route('/output', methods=['GET', 'POST'])
 def output():
     if request.method == 'POST':
-        value = request.form['code']
-        print(value)
-    return render_template('output.html', value=value)
+        # input = request.form
+        input_object = request.form['object']
+        input_object = Syntax_object_fun(input_object)
+    return render_template('output.html', value = input_object)
 
 if __name__ == '__main__':
     app.debug = True
