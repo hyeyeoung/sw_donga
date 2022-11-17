@@ -1,3 +1,4 @@
+from fun import *
 from flask import Flask
 from flask import Flask, render_template, request, session, redirect, url_for
 # render_template 함수는 flask에서 제공하는 함수로 templates에 저장된 html을 불러올 때 사용하는 함수이다.
@@ -17,9 +18,25 @@ def home():
 @app.route('/output', methods=['GET', 'POST'])
 def output():
     if request.method == 'POST':
-        value = request.form['code']
-        print(value)
-    return render_template('output.html', value=value)
+        value = request.form
+        rel_object = value['object']
+        rel_object = Syntax_object_fun(rel_object)
+        if type(rel_object) is list:
+            req = request.form
+            r = makeIdx(req['object'])
+            idx = r[0]
+            tmp = r[1]
+            
+            print(idx)
+            relation = makeRelation(req['object'], idx, tmp)
+            capacity = makeCapacity(req['code'], idx)
+            
+            print('== relation ==')
+            print(relation)
+            print('== capacity ==')
+            print(capacity)
+            return render_template('output.html', value=req)
+    return render_template('output.html', value=rel_object)
 
 if __name__ == '__main__':
     app.debug = True
