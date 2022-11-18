@@ -69,7 +69,7 @@ def makeRelation(req, idx, tmp):
         ret[key] = [False for i in range(len(idx.keys()))]
     
     for i in range(len(tmp)):
-        print(tmp[i])
+        # print(tmp[i])
         ret[tmp[i][0]][idx[tmp[i][1]]] = True
         ret[tmp[i][1]][idx[tmp[i][0]]] = True
     return ret

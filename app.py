@@ -27,14 +27,13 @@ def output():
             idx = r[0]
             tmp = r[1]
             
-            print(idx)
             relation = makeRelation(req['object'], idx, tmp)
             capacity = makeCapacity(req['code'], idx)
             
-            print('== relation ==')
-            print(relation)
-            print('== capacity ==')
-            print(capacity)
+            # print('== relation ==')
+            # print(relation)
+            # print('== capacity ==')
+            # print(capacity)
             return render_template('output.html', value=req)
     return render_template('output.html', value=rel_object)
 
