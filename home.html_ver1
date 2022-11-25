@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="input.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDCHELP!</title>
+
+    <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b17d4fa9e7.js" crossorigin="anonymous"></script>
+    <script src="home.js" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <i class="fa-solid fa-code"></i> <!--로고 뭐 넣어야 할 지 모르겠음 -->
+            <a href="">Donga Design Code</a>
+        </div>
+        
+        <ul class="navbar__menu">
+            <li><a href="">Guide</a></li>
+            <li><a href="">Q&A</a></li>
+        </ul>
+        <!--아래 navbar_icons 부분은 아무 기능 없는 그냥 icon 사진 있는 부분,
+        만약 동아대 아이콘이나 할 수 있다면 좋겠지만 일단 트위터랑 페북 넣어둠ㅎ-->
+        <ul class="navbar__icons">
+            <li><i class="fab fa-twitter"></i></li>
+            <li><i class="fab fa-facebook-f"></i></li>
+        </ul>
+
+        <a href="#" class="navbar__toogleBtn">
+            <i class="fas fa-bars"></i>
+        </a>
+    </nav>
+                        
+    <form class="Donga-DesignCode" method='post' action='/output'>
+        <div class="RelationInput"> 
+            <label for="relation"></label>
+            <input type="text" id="relation" placeholder="Write a relationship here." required> 
+        </div>
+        <div class="CodeInput"> 
+            <label for="code"></label>
+            <textarea id="code" name='code' rows='10' cols='50' placeholder="Write a code here." required></textarea>
+        <div class="btnStyle"> 
+            <input type='submit' id="submit_btn" value="Check"> 
+        </div>
+    </form>
+</body>
+</html>
