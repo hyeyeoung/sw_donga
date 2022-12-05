@@ -96,6 +96,9 @@ def makeCapacity(req, idx):
     tmp = req.replace(' ', '').split('\r\n')
     for i in range(len(tmp)):
         tmp[i] = tmp[i].split('=')
+        len_tmp = tmp[i][0]
+        if len(len_tmp) <3:
+            return 'False'
         tmp[i][1] = tmp[i][1].split(',')
         for t in tmp[i][1]:
             ret[tmp[i][0]].append(t)
