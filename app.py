@@ -42,7 +42,7 @@ def output():
             # capactity는 모든 주연배우를 key로 가지며 value는 빈 리스트이다.
 
             if len(acti) != 1:
-                return render_template('output.html', value={'error': 'more than one activation subject or no activation subject'})
+                return render_template('output.html', value=['error', 'more than one activation subject or no activation subject'])
 
             activationSubject = acti[0]
             relation = makeRelation(req['relation'], idx, tmp)
@@ -61,11 +61,10 @@ def output():
                 result.append('false')
                 result.append(activationSubject + ' has no request. This is not service.')
 
-            print(result)
+            print(type(result))
             # isgoodCode(activationSubject, idx, relation, capacity)
 
-            # 활성화 주체(rel_object)부터 모든 존재하는 관계를
-             
+            # 활성화 주체(rel_object)부터 모든 존재하는 관계를 
             return render_template('output.html', value=result)
         mes = 'Syntax Error!: '+ rel_object
         return render_template('error.html', error = mes)
