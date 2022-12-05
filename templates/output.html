@@ -3,11 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="input.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Output</title>
+    <title>DDCHELP!</title>
+
+    <link rel="stylesheet" href="/static/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b17d4fa9e7.js" crossorigin="anonymous"></script>
+    <script src="/static/home.js" defer></script>
+
 </head>
 <body>
-    {{value}}를 전달받았습니다. <br>
-    <a href="{{url_for('home')}}">input으로 돌아가기</a>
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <i class="fa-solid fa-code"></i> <!--로고 뭐 넣어야 할 지 모르겠음 -->
+            <a href="{{url_for('home')}}">Donga Design Code</a>
+        </div>
+
+        <ul class="navbar__menu">
+            <li><a href="{{url_for('home')}}">Guide</a></li>
+            <li><a href="#">Q&A</a></li>
+        </ul>
+        <!--아래 navbar_icons 부분은 아무 기능 없는 그냥 icon 사진 있는 부분,
+        만약 동아대 아이콘이나 할 수 있다면 좋겠지만 일단 트위터랑 페북 넣어둠ㅎ-->
+        <ul class="navbar__icons">
+            <li><i class="fab fa-twitter"></i></li>
+            <li><i class="fab fa-facebook-f"></i></li>
+        </ul>
+
+        <a href="#" class="navbar__toogleBtn">
+            <i class="fas fa-bars"></i>
+        </a>
+    </nav>
+    <div class="guidArea">
+        <div class="title">
+            Donga Design Code
+        </div>
+    </div>
+    {% if value[0] == 'true' %}
+    관계확인 완료
+    {% else %}
+    {{value}}를 전달 받았습니다.
+    {% endif %}
+    
+    <a href="{{url_for('input')}}">input으로 돌아가기</a>
+
 </body>
 </html>

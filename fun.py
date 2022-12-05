@@ -5,12 +5,12 @@
 def Syntax_object_fun(rel_object):
     # 제일 앞 뒤에 쉼표가 존재하는지?
     if ord(rel_object.strip()[-1]) == ord(',') or ord(rel_object.strip()[0]) == ord(','):
-        rel_object = "error: comma"
+        rel_object = "Comma"
         return rel_object
     # 제일 마지막 객체를 활성화 객체라고 가정함
     # 간단한 문법 에러 한 번 거른 후 리스트로 나누기    
     if ord(rel_object.strip()[-1]) != ord(')'):
-        rel_object = "error: input"
+        rel_object = "Active_object"
         return rel_object
     # 콤마를 기준으로 각 객체간의 관계를 1차적으로 나눠준다.
     # 최종 결과 리스트 선언
@@ -19,7 +19,7 @@ def Syntax_object_fun(rel_object):
     # 객체 내에 관계가 없다면 그 관계는 틀린 것
     for i in rel_object_list:
         if "<->" not in i:
-            rel_object = "error: relationship"
+            rel_object = "Relationship"
             return rel_object
         else: # 최종적으로 관계에 따라 문자열을 나눠준다
             a = i.split("<->")
@@ -29,7 +29,7 @@ def Syntax_object_fun(rel_object):
                 result_object_list.append(a[1])
     # 마지막이 활성화 객체/ 활성화 객체의 첫 시작이 괄호인지 확인
     if "(" != result_object_list[-1].strip()[0]:
-        rel_object = "error: activation object"
+        rel_object = "Activation_object"
         return rel_object 
     return result_object_list
 
