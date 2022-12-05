@@ -1,0 +1,52 @@
+* output.htmld에서 {% %}와 {{}}는 어디에 쓰이는 건지?
+https://hleecaster.com/flask-jinja2/
+간단 요약: Flask에서는 Jinja2라는 템플릿 엔진을 사용해서 애플리케이션 내 변수와 반복문, 조건문 등을 포함하는 HTML 파일을 렌더링할 수 있다.
+render_template()에서 받아온 변수는 {{변수명}}과 같은 식으로 불러와서 쓸 수 있다.
+템플릿에서 if 조건문 -> {% if문 %} {% endif %}
+템플릿에서 for 반복문 -> {% for문 %} {% endfor %}
+
+아니 근데 윗 내용 output.html에 
+<!--
+    내용
+--> 
+이렇게 여러 줄 주석으로 해서 넣으면 왜 오류 나냐?
+
+* 예시 입력
+- 관계
+casher <-> baristar, (customer) <-> casher
+- 동아 설계 코드
+baristar = coffee, 5000 -> coffee
+casher = 5000 -> coffee
+customer = 5000 -> coffee
+
+(student)<->teaching assistant, teaching assistant<->professor
+student = exam->score
+teaching assistant = exam, score, exam->score
+professor= exam, exam->score
+
+gasoline pump<->gas station employee, gas station employee<->(driver)
+gasoline pump = car fuel, money->car fuel
+gas station employee = money->car fuel
+driver = money->car fuel
+
+casher <-> baristar, (customer) <-> casher
+baristar = coffee, money -> coffee
+casher = money -> coffee
+customer = money -> coffee
+
+novelist<->novel platform, novel platform<->(reader)
+novelist = novel, money->novel
+novel platform = money->novel
+reader = money->novel
+
+chef<->waiter, waiter<->(customer)
+chef = food, money->food
+waiter = money->food
+customer = money->food
+
+chef<->waiter, waiter<->(customer)
+chef = food, money->food, money->drink
+waiter = money->food, money->drink
+customer = money->food, money->drinks
+
+ 
