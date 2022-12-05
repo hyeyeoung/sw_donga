@@ -18,24 +18,46 @@ def home():
 @app.route('/output', methods=['GET', 'POST'])
 def output():
     if request.method == 'POST':
-        value = request.form
-        rel_object = value['object']
-        rel_object = Syntax_object_fun(rel_object)
-        if type(rel_object) is list:
-            req = request.form
-            r = makeIdx(req['object'])
-            idx = r[0]
-            tmp = r[1]
-            
-            relation = makeRelation(req['object'], idx, tmp)
-            capacity = makeCapacity(req['code'], idx)
-            
-            # print('== relation ==')
-            # print(relation)
-            # print('== capacity ==')
-            # print(capacity)
-            return render_template('output.html', value=req)
-    return render_template('output.html', value=rel_object)
+        req = request.form # <class 'werkzeug.datastructures.ImmutableMultiDict'> 이렇게 하면 req의 key는 form의 name 속성값, req는 해당 name 속성값의 태그에서 입력된 값
+        # ex. req['relation']처럼 name 속성으로 접근하면 된다.
+
+        # idx = dict() # 주연배우(?)랑 숫자 인덱스랑 매치된 dictionary. key: 주연배우, value: 인덱스
+        r = makeIdx(req['relation'])
+        idx = r[0]
+        idx2 = r[1]
+        tmp = r[2]
+        acti = r[3]
+        
+        print(idx)
+        # relation, capacity 초기화
+        # relation은 모든 주연배우를 key로 가지며 value는 주연배우의 크기만큼인 배열을 False로 채운다
+        # capactity는 모든 주연배우를 key로 가지며 value는 빈 리스트이다.
+
+        if len(acti) != 1:
+            return render_template('output.html', value={'error': 'more than one activation subject or no activation subject'})
+
+        activationSubject = acti[0]
+        relation = makeRelation(req['relation'], idx, tmp)
+        capacity = makeCapacity(req['code'], idx)
+        
+        print("activationSubject: " + activationSubject)
+        print('== relation ==')
+        print(relation)
+        print('== capacity ==')
+        print(capacity)
+
+        result = []
+        for c in capacity[activationSubject]:
+            result = isConnected(activationSubject, idx2, relation, capacity, c, [])
+        if not result:
+            result.append('false')
+            result.append(activationSubject + ' has no request. This is not service.')
+
+        print(result)
+        # isgoodCode(activationSubject, idx, relation, capacity)
+
+        # 활성화 주체(rel_object)부터 모든 존재하는 관계를 
+        return render_template('output.html', value=result)
 
 if __name__ == '__main__':
     app.debug = True

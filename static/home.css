@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+:root{
+    --text-color: #f0f4f5;
+    --background-color: #351d53;
+    --accent-color:#d8d3ff;
+}
+
+body {
+    margin: 0px;
+    font-family: 'Open sans';
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:#351d53;
+    padding: 8px 12px;
+}
+
+.navbar__logo {
+    font-size: 24px;
+    color: white;
+}
+
+.navbar__logo i {
+    color: #d8d3ff;
+}
+
+.navbar__menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0px;
+}
+
+.navbar__menu li {
+    padding: 8px 12px;
+
+}
+
+.navbar__menu :hover {
+    background: #d8d3ff;
+    border-radius: 4px;
+}
+
+.navbar__icons {
+    list-style: none;
+    color: white;
+    display: flex;
+    padding-left: 0px;
+}
+
+.navbar__icons li {
+    padding: 8px 12px;
+}
+
+.navbar__toogleBtn {
+    display: none;
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: #d8d3ff;
+}
+
+@media screen and (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+    }
+    
+    .navbar__menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar__menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar__icons {
+        display: none;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navbar__toogleBtn {
+        display: block;
+    }
+
+    .navbar__menu.active,
+    .navbar__icons.active {
+        display: flex;
+    }
+}
+.guidArea {
+    text-align: center;
+    margin:auto;
+}
+.title{
+    margin-top: 10px;
+    font-family: 'Zen Dots', cursive;
+    color: #351d53;
+    font-size: xx-large;
+}
+.guid_title{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: x-large;
+
+}
+.guid{
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-right: 500px;
+}
+* {
+    padding: 0;
+    margin: 0;
+    transition: all ease-in 0.5s;
+  }
+  button{
+    width: 60%;
+    height: 50px;
+    margin: 150px auto;
+    text-align: center;
+    background-color: #351d53;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: inherit;
+  }
+
+  form {
+    width: 60%;
+    height: 50px;
+    margin: 150px auto;
+    text-align: center;/* input의 글자 성격을 중앙정렬 하기 위해 */
+  }
+
+  input[type="text"] {
+    height: 10px;
+    width: 50%;
+    border: 1px solid #d8d3ff;
+    outline-color: #351d53;
+    padding-top: 50px;
+    padding: 30px;/* 내용물 작성했을 때 여백감 */
+    border-radius: 50px;
+
+    display: block;
+    margin: auto;
+    background-size: 20px;
+    padding-left: 50px; /* 글자 써지는 위치 */
+  }
+
+  textarea {
+    height: 100px;
+    width: 50%;
+    border: 1px solid #d8d3ff;
+    outline-color: #351d53;
+    padding-top: 50px;
+    padding: 30px;/* 내용물 작성했을 때 여백감 */
+    border-radius: 20px;
+
+    display: block;
+    margin: auto;
+    margin-block-start: 10px;
+    background-size: 20px;
+    padding-left: 50px; /* 글자 써지는 위치 */
+  }
+
+  input[type=submit] {
+    background-color: #351d53;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    align-items: inherit;
+  }
+
+ .RelationInput {
+    display: block;
+ }
+
+.CodeInput {
+    display: block;
+}
