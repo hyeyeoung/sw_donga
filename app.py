@@ -49,9 +49,14 @@ def output():
             if '=' not in req['code']:
                 return render_template('error.html',error='This code is not in the right')
             capacity = makeCapacity(req['code'], idx)
-            if capacity == 'False':
-                return render_template('error.html',error='This code is not in the right')
+            if capacity == 'False1':
+                return render_template('error.html',error='Please input object')
+            if capacity == 'False2':
+                return render_template('error.html',error='Please input ability')
+            if capacity == 'keyerror':
+                return render_template('error.html',error='Ability doesn\'t match relationships')
             
+
             print("activationSubject: " + activationSubject)
             print('== relation ==')
             print(relation)

@@ -97,10 +97,15 @@ def makeCapacity(req, idx):
     for i in range(len(tmp)):
         tmp[i] = tmp[i].split('=')
         len_tmp = tmp[i][0]
-        if len(len_tmp) <3:
-            return 'False'
+        if len(len_tmp) <1:
+            return 'False1'
+        obj_tmp = tmp[i][1]
+        if len(obj_tmp) < 1:
+            return 'False2'    
         tmp[i][1] = tmp[i][1].split(',')
         for t in tmp[i][1]:
+            if idx.get(tmp[i][0]) is None:
+                return 'keyerror'
             ret[tmp[i][0]].append(t)
     return ret
 
